@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 执行上下文（context） </title>
+    <script type="text/javascript">
+        // window.addEventListener('load', eventWindowLoaded, false);
+        // function eventWindowLoaded() {
+        //     canvasApp();
+        // }
+
+        window.onload = function () {
+            canvasApp();
+        }
+        function canvasApp() {
+            var theCanvas = document.getElementById('canvas');
+            var context = theCanvas.getContext('2d');
+
+            context.linewidth =5;
+            context.strokeStyle='blue';
+            
+            context.save();
+            context.beginPath();
+            context.arc(100, 100, 50, Math.PI , Math.PI *1.5);
+            context.stroke();
+            context.restore();
+            
+            context.beginPath();
+            context.arc(100,100,50,Math.PI*0.5,0,true);
+            context.stroke();
+        }
+</script>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="border:2px #ccc solid">
+            Your browser does not support the HTML 5 Canvas.
+    </canvas>
+
+</body>
